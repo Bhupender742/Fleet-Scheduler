@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		9FC826012E55F5C80006D234 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F8B153C2E55B4160060505B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F8B15432E55B4160060505B;
+			remoteInfo = FleetScheduler;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9F8B15442E55B4160060505B /* FleetScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FleetScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC825FD2E55F5C80006D234 /* FleetSchedulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FleetSchedulerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = FleetScheduler;
 			sourceTree = "<group>";
 		};
+		9FC825FE2E55F5C80006D234 /* FleetSchedulerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FleetSchedulerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9F8B15412E55B4160060505B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC825FA2E55F5C80006D234 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8B15462E55B4160060505B /* FleetScheduler */,
+				9FC825FE2E55F5C80006D234 /* FleetSchedulerTests */,
 				9F8B15452E55B4160060505B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9F8B15442E55B4160060505B /* FleetScheduler.app */,
+				9FC825FD2E55F5C80006D234 /* FleetSchedulerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = 9F8B15442E55B4160060505B /* FleetScheduler.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9FC825FC2E55F5C80006D234 /* FleetSchedulerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC826032E55F5C80006D234 /* Build configuration list for PBXNativeTarget "FleetSchedulerTests" */;
+			buildPhases = (
+				9FC825F92E55F5C80006D234 /* Sources */,
+				9FC825FA2E55F5C80006D234 /* Frameworks */,
+				9FC825FB2E55F5C80006D234 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FC826022E55F5C80006D234 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9FC825FE2E55F5C80006D234 /* FleetSchedulerTests */,
+			);
+			name = FleetSchedulerTests;
+			packageProductDependencies = (
+			);
+			productName = FleetSchedulerTests;
+			productReference = 9FC825FD2E55F5C80006D234 /* FleetSchedulerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					9F8B15432E55B4160060505B = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					9FC825FC2E55F5C80006D234 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 9F8B15432E55B4160060505B;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				9F8B15432E55B4160060505B /* FleetScheduler */,
+				9FC825FC2E55F5C80006D234 /* FleetSchedulerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9F8B15422E55B4160060505B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC825FB2E55F5C80006D234 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FC825F92E55F5C80006D234 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FC826022E55F5C80006D234 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F8B15432E55B4160060505B /* FleetScheduler */;
+			targetProxy = 9FC826012E55F5C80006D234 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9F8B15502E55B4170060505B /* Debug */ = {
@@ -302,6 +377,42 @@
 			};
 			name = Release;
 		};
+		9FC826042E55F5C80006D234 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 76ZP8LMJNM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rawat.FleetSchedulerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FleetScheduler.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FleetScheduler";
+			};
+			name = Debug;
+		};
+		9FC826052E55F5C80006D234 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 76ZP8LMJNM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rawat.FleetSchedulerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FleetScheduler.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FleetScheduler";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +430,15 @@
 			buildConfigurations = (
 				9F8B15532E55B4170060505B /* Debug */,
 				9F8B15542E55B4170060505B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC826032E55F5C80006D234 /* Build configuration list for PBXNativeTarget "FleetSchedulerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC826042E55F5C80006D234 /* Debug */,
+				9FC826052E55F5C80006D234 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
