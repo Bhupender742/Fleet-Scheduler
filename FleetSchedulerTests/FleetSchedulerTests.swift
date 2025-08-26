@@ -54,7 +54,7 @@ final class FleetSchedulingTests: XCTestCase {
     
     // MARK: - Algorithm Tests
     func testBasicScheduling() {
-        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 5.0)
+        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 5)
         
         // Should be able to schedule at least some trucks
         XCTAssertGreaterThan(result.totalTrucksCharged, 0)
@@ -68,20 +68,20 @@ final class FleetSchedulingTests: XCTestCase {
     
     func testEmptyInputs() {
         // Test with no trucks
-        var result = algorithm.schedule(trucks: [], chargers: sampleChargers, timeLimit: 8.0)
+        var result = algorithm.schedule(trucks: [], chargers: sampleChargers, timeLimit: 8)
         XCTAssertEqual(result.totalTrucksCharged, 0)
         XCTAssertTrue(result.assignments.isEmpty)
         XCTAssertTrue(result.unassignedTrucks.isEmpty)
         
         // Test with no chargers
-        result = algorithm.schedule(trucks: sampleTrucks, chargers: [], timeLimit: 8.0)
+        result = algorithm.schedule(trucks: sampleTrucks, chargers: [], timeLimit: 8)
         XCTAssertEqual(result.totalTrucksCharged, 0)
         XCTAssertTrue(result.assignments.isEmpty)
         XCTAssertEqual(result.unassignedTrucks.count, sampleTrucks.count)
     }
     
     func testZeroTimeLimit() {
-        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 0.0)
+        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 0)
         
         XCTAssertEqual(result.totalTrucksCharged, 0)
         XCTAssertTrue(result.assignments.isEmpty)
@@ -90,7 +90,7 @@ final class FleetSchedulingTests: XCTestCase {
     
     func testInsufficientTime() {
         // Very short time limit that can't charge any truck fully
-        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 0.1)
+        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 0)
         
         XCTAssertEqual(result.totalTrucksCharged, 0)
         XCTAssertTrue(result.assignments.isEmpty)
@@ -99,7 +99,7 @@ final class FleetSchedulingTests: XCTestCase {
     
     func testSufficientTimeForAll() {
         // Long time limit that should allow all trucks to charge
-        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 20.0)
+        let result = algorithm.schedule(trucks: sampleTrucks, chargers: sampleChargers, timeLimit: 20)
         
         XCTAssertEqual(result.totalTrucksCharged, sampleTrucks.count)
         XCTAssertTrue(result.unassignedTrucks.isEmpty)
@@ -109,7 +109,7 @@ final class FleetSchedulingTests: XCTestCase {
         let truck = [Truck(id: "Solo", batteryCapacity: 60.0, currentChargePercentage: 50.0)]
         let charger = [Charger(id: "Only", chargingRate: 30.0)]
         
-        let result = algorithm.schedule(trucks: truck, chargers: charger, timeLimit: 2.0)
+        let result = algorithm.schedule(trucks: truck, chargers: charger, timeLimit: 2)
         
         XCTAssertEqual(result.totalTrucksCharged, 1)
         XCTAssertEqual(result.assignments.count, 1)
@@ -129,7 +129,7 @@ final class FleetSchedulingTests: XCTestCase {
         ]
         let charger = [Charger(id: "FastCharger", chargingRate: 40.0)]
         
-        let result = algorithm.schedule(trucks: trucks, chargers: charger, timeLimit: 2.0)
+        let result = algorithm.schedule(trucks: trucks, chargers: charger, timeLimit: 2)
         
         XCTAssertEqual(result.totalTrucksCharged, 2)
         
@@ -151,7 +151,7 @@ final class FleetSchedulingTests: XCTestCase {
         let charger = [Charger(id: "Charger", chargingRate: 50.0)]
         
         // Time limit allows only one truck to charge fully
-        let result = algorithm.schedule(trucks: trucks, chargers: charger, timeLimit: 1.0)
+        let result = algorithm.schedule(trucks: trucks, chargers: charger, timeLimit: 1)
         
         XCTAssertEqual(result.totalTrucksCharged, 1)
         // Should prioritize the faster-charging truck
@@ -165,7 +165,7 @@ final class FleetSchedulingTests: XCTestCase {
         let trucks = [Truck(id: "Full", batteryCapacity: 100.0, currentChargePercentage: 100.0)]
         let chargers = [Charger(id: "Charger", chargingRate: 50.0)]
         
-        let result = algorithm.schedule(trucks: trucks, chargers: chargers, timeLimit: 5.0)
+        let result = algorithm.schedule(trucks: trucks, chargers: chargers, timeLimit: 5)
         
         XCTAssertEqual(result.totalTrucksCharged, 1)
         XCTAssertEqual(result.assignments.count, 1)
@@ -180,7 +180,7 @@ final class FleetSchedulingTests: XCTestCase {
         let chargers = [Charger(id: "BrokenCharger", chargingRate: 0.0)]
         
         // This should not crash and should handle infinite charging time gracefully
-        let result = algorithm.schedule(trucks: trucks, chargers: chargers, timeLimit: 5.0)
+        let result = algorithm.schedule(trucks: trucks, chargers: chargers, timeLimit: 5)
         
         // With zero charging rate, no trucks should be scheduled
         XCTAssertEqual(result.totalTrucksCharged, 0)
@@ -203,7 +203,7 @@ extension FleetSchedulingTests {
         }
         
         measure {
-            _ = algorithm.schedule(trucks: largeTruckFleet, chargers: chargers, timeLimit: 8.0)
+            _ = algorithm.schedule(trucks: largeTruckFleet, chargers: chargers, timeLimit: 8)
         }
     }
 }
@@ -215,7 +215,7 @@ extension FleetSchedulingTests {
         let result = algorithm.schedule(
             trucks: SampleData.trucks,
             chargers: SampleData.chargers,
-            timeLimit: 8.0
+            timeLimit: 8
         )
         
         // Verify basic sanity of the results
